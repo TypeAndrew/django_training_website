@@ -1,10 +1,11 @@
+{% load static %}
 <!doctype html>
 <html lang="ru">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="external.css" rel="stylesheet">
+    <link href="{% static 'external.css' %}" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -14,7 +15,7 @@
   <body>
 	<nav class="navbar navbar-light bg-light container">
 	  <a class="navbar-brand logo-top" href="#">
-	    <img src="./img/Logo.png" width="40" height="40" class="d-inline-block align-top" alt="" loading="lazy">
+	    <img src="{% static 'img/Logo.png' %}" width="40" height="40" class="d-inline-block align-top" alt="" loading="lazy">
 	    Brand Name
 	  </a>
 	  <div class="contact-top">
@@ -25,49 +26,18 @@
       </div>
 	</nav>
 
-	{% extends 'base.html' %}
-	{% load static %}
-	{% block index %}
+{% block index %}
 
-	<!-- карусель -->
-	{% include 'carusel.html' %}
+{% endblock %}
 
-	<!-- Карточки -->
-	{% include 'price.html' %}
-  	<!-- форма -->
-  	<section>
-  		<div class="container class_form">
-  			<h1 class="text-3">Оставь заявку и получи услугу</h1>
-  			<div class="row justify-content-center">
-  			<form action="{% url 'thanks_page' %}" method="POST" style="width: 50%;">
-				{% csrf_token %}
-			  <div class="form-group row">
-			    <label for="inputEmail3" class="col-sm-2 col-form-label">Имя</label><br>
-				  {{ form.name }}
-			    <div class="">
-			    </div>
-			  </div>
-			  <div class="form-group row">
-			    <label for="inputEmail3" class="col-sm-2 col-form-label">Телефон</label><br>
-				  {{ form.phone }}
-			    <div class="">
-			    </div>
-			  </div>
-			  <div style="float: right;" class="form-group row">
-			      <button type="submit" class="btn btn-success">ОСТАВИТЬ ЗАЯВКУ</button>
-			  </div>
-			</form>
-			</div>
-  		</div>
-  	</section>
+{% block thanks %}
 
-	{% endblock %}
-
-    	<footer>
+{% endblock %}
+<footer>
   		<div class="container">
   			<nav class="navbar navbar-light bg-light container">
 			    <a class="navbar-brand logo-top" href="#">
-			    	<img src="./img/Logo.png" width="40" height="40" class="d-inline-block align-top" alt="" loading="lazy">
+			    	<img src="{% static 'img/Logo.png' %}" width="40" height="40" class="d-inline-block align-top" alt="" loading="lazy">
 			    	Brand Name
 			    </a>
 	  			<div class="contact-top">
